@@ -68,7 +68,7 @@
     <div class="col-lg-6">
         <h1 class="display-5 fw-bold lh-1 mb-3">Compromiso con el consumidor</h1>
         <p class="lead" id="text1">El comienzo de cada semana, es la oportunidad perfecta para continuar trabajando como lo hemos hecho año tras año, con mucho amor, pasión y entrega.
-            Para que puedas alimentarte con alimentos de buena calidad, frescos y deliciosos.</p>
+            Para que puedas alimentarte con alimentos de buena calidad, frescos y deliciosos. </p>
         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
             <a href="main.php" data-toggle="tooltip" data-placement="right" title=" A GelaStore" type="button" class="btn btn-primary btn-lg px-4 me-md-2">GelaStore</a>
         </div>
