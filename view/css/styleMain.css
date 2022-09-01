@@ -1,0 +1,39 @@
+
+.nav-scroller {
+    position: relative;
+    z-index: 2;
+    height: 2.75rem;
+    overflow-y: hidden;
+}
+
+.nav-scroller .nav {
+    display: flex;
+    flex-wrap: nowrap;
+    padding-bottom: 1rem;
+    margin-top: -1px;
+    overflow-x: auto;
+    text-align: center;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+
+.main .h1{
+    height: 400px;
+    width: 800px;
+    background: red;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+/* body{
+    --primario:rgb(0, 183, 255);
+    --secundario:rgb(93, 230, 235);
+    --terceario:rgb(42, 119, 235);
+    background: linear-gradient(var(--primario), transparent);
+    background: linear-gradient(-90deg, var(--secundario), transparent);
+    background: linear-gradient(90deg, var(--terceario), transparent);
+    /* background-image : url('/public/img/fondo.jpg'); */
+    /* background: radial-gradient( rgba(68, 188, 235, 0.253),rgba(91, 182, 235, 0.493), rgba(255, 255, 255, 0.329)); */
+/* } */
