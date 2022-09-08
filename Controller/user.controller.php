@@ -20,7 +20,7 @@ class UserController{
                     title: 'Oops...',
                     text: 'Password error!'
                   })
-                </script>                
+                </script>
                 ";
 
             }else{
@@ -32,11 +32,11 @@ class UserController{
             echo "Error on the creation of the controller";
         }
     }
-    public function setInsertUser($name, $lastName, $user, $pass){
+    public function setInsertUser($name, $email, $user, $pass){
         try{
             $objDtoUser = new User();
             $objDtoUser -> setName($name);
-            $objDtoUser -> setLastName($lastName);
+            $objDtoUser -> setEmail($email);
             $objDtoUser -> setUser($user);
             $objDtoUser -> setPassword($pass);
 
@@ -69,12 +69,12 @@ class UserController{
         }
         return $respon;
     }//FIN DE MOSTRAR TODOS
-    public function setUpdateUser($code, $name, $lastName, $user, $pass){
+    public function setUpdateUser($code, $name, $email, $user, $pass){
         try{
             $objDtoUser = new User();
             $objDtoUser -> setCode($code);
             $objDtoUser -> setName($name);
-            $objDtoUser -> setLastName($lastName);
+            $objDtoUser -> setEmail($email);
             $objDtoUser -> setUser($user);
             $objDtoUser -> setPassword($pass);
             $objDaoUser = new UserModel($objDtoUser);
