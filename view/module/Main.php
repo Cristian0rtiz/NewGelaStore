@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="en">
 <head>
 
@@ -139,7 +139,6 @@
                     
                     </div>
                 </div>
-                <br>
                 <div class="col">
                     <div class="card shadow-sm">
                         <img src="../img/productos_img/granola.jpg">
@@ -159,7 +158,6 @@
                     
                     </div>
                 </div>
-                <br>
                 <div class="col">
                     <div class="card shadow-sm">
                         <img src="../img/productos_img/quinua.jpg">
@@ -179,7 +177,6 @@
                     
                     </div>
                 </div>
-                <br>
                 <div class="col">
                     <div class="card shadow-sm" style="border-left-style: solid;margin-left: 0px; margin-right: 0px;">
                         <img src="../img/productos_img/arandanos.jpg">

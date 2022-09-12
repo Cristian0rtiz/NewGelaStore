@@ -76,7 +76,6 @@
             return $respon;
         }
 
-
     public function mldUpdateUsuario(){
         $sql  = "CALL spUpdateUser (?, ?, ?, ?, ?);";
         $estado = false;
