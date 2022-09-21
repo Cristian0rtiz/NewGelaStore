@@ -34,9 +34,9 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Opciones de soporte</a>
                     <ul class="dropdown-menu" aria-labelledby="dropdown04">
-                        <li><a class="dropdown-item" href="#">Llamanos 👉 3004589584</a></li>
-                        <li><a class="dropdown-item" href="#">Escribenos 👉 GelaStore@gmail.com</a></li>
-                        <li><a class="dropdown-item" href="#">Chatea con nosotros 👉 +57 3004589584</a></li>
+                        <li><a class="dropdown-item" href="tel:+573004589584">Llamanos 👉 3004589584</a></li>
+                        <li><a class="dropdown-item" href="mailto:GelaStore@gmail.com">Escribenos 👉 GelaStore@gmail.com</a></li>
+                        <li><a class="dropdown-item" href="https://api.WhatsApp.com/send?phone=3002439584">Chatea con nosotros 👉 +57 3004589584</a></li>
                     </ul>
                 </li>
             </ul>
