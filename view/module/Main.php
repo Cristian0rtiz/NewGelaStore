@@ -22,38 +22,10 @@
 
 <body>
 
-    <div class="collapse navbar-collapse"></div>
-    <header class="p-2 mb-2">
-        <div class="container-lg">
-            <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-            <button href="../module/Main.php" class="btn btn-outline-light-bottom-3 btn-lg">GelaStore</button>
-            <br><br>
-            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-                <li class="nav-item"><a href="../module/About.php" class="nav-link px-2 link-dark">Acerca de nosotros</a></li>
-                <li class="nav-item"><a href="../module/carrito.php" class="nav-link px-2 link-dark">Tu carrito</a></li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Opciones de soporte</a>
-                    <ul class="dropdown-menu" aria-labelledby="dropdown04">
-                        <li><a class="dropdown-item" href="#">Llamanos 👉 3004589584</a></li>
-                        <li><a class="dropdown-item" href="#">Escribenos 👉 GelaStore@gmail.com</a></li>
-                        <li><a class="dropdown-item" href="#">Chatea con nosotros 👉 +57 3004589584</a></li>
-                    </ul>
-                </li>
-            </ul>
-    
-            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search">
-                <input type="search" class="form-control" placeholder="Buscar... " aria-label="Search">
-            </form>
-            <div class="text-end">
-                <a href="#" type="button" class="btn btn-primary">Login</a>
-                <a href="#" type="button" class="btn btn-primary">Sign-up</a>
-            </div>
-            </div> 
-        </div>
-    </header>
+    <?php include_once 'navbar.php'; ?>
 
     <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        
+
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -136,7 +108,7 @@
                             <a href="#" type="button" class="btn btn-md btn-outline-success">Agregar</a>
                         </div>
                     </div>
-                    
+
                     </div>
                 </div>
                 <div class="col">
@@ -155,7 +127,7 @@
                             <a href="#" type="button" class="btn btn-md btn-outline-success">Agregar</a>
                         </div>
                     </div>
-                    
+
                     </div>
                 </div>
                 <div class="col">
@@ -174,7 +146,7 @@
                             <a href="#" type="button" class="btn btn-md btn-outline-success">Agregar</a>
                         </div>
                     </div>
-                    
+
                     </div>
                 </div>
                 <div class="col">
@@ -195,13 +167,13 @@
                             <a href="#" type="button" class="btn btn-md btn-outline-success">Agregar</a>
                         </div>
                     </div>
-                    
+
                     </div>
                 </div>
             </div>
         </div>
     </main>
-    
+
 
     <footer class="my-5 pt-5 text-muted text-center text-small">
         <p class="mb-1">&copy; 2022 GelaStore </p>
