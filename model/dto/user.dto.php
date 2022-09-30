@@ -2,7 +2,7 @@
 
     class User{
 
-        private $code;
+        private $id;
         private $name;
         private $email;
         private $user;
@@ -11,8 +11,8 @@
 
 
         /*GETTERS*/
-        public function getCode(){
-            return $this->code;
+        public function getId(){
+            return $this->id;
         }
         public function getName(){
             return $this->name;
@@ -27,8 +27,8 @@
             return $this->password;
         }
         /*SETTING */
-        public function setCode ( $code ){
-            $this -> code = $code;
+        public function setId ( $id ){
+            $this -> id = $id;
         }
         public function setName ( $name ){
             $this -> name = $name;

@@ -69,10 +69,10 @@ class UserController{
         }
         return $respon;
     }//FIN DE MOSTRAR TODOS
-    public function setUpdateUser($code, $name, $email, $user, $pass){
+    public function setUpdateUser($id, $name, $email, $user, $pass){
         try{
             $objDtoUser = new User();
-            $objDtoUser -> setCode($code);
+            $objDtoUser -> setId($id);
             $objDtoUser -> setName($name);
             $objDtoUser -> setEmail($email);
             $objDtoUser -> setUser($user);

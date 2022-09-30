@@ -10,11 +10,11 @@
 
         //__CONSTRUCT
         public function __construct(){
-            $this -> host   ="localhost";
-            $this -> drive  ="mysql";
-            $this -> base   ="gela";
-            $this -> user   ="root";
-            $this -> pass   ="";
+            $this -> host   = "localhost";
+            $this -> drive  = "mysql";
+            $this -> base   = "gela";
+            $this -> user   = "root";
+            $this -> pass   = "";
             $this -> url    = $this -> drive . ":host=" 
                             . $this -> host . ";dbname=" 
                             . $this -> base;

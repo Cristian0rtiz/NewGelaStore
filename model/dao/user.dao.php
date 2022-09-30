@@ -10,7 +10,7 @@
         private $password;
 
         public function __construct($objDtoUser){
-            $this ->code      =  $objDtoUser -> getCode() ;
+            $this ->code      =  $objDtoUser -> getId() ;
             $this ->user      =  $objDtoUser -> getUser() ;
             $this ->password  =  $objDtoUser -> getPassword() ;
             $this ->name      =  $objDtoUser -> getName() ;
@@ -49,7 +49,7 @@
             return $estado;
         }
         public function mldSearchAllUser(){
-            $respon=false;
+            $respon = false;
             $sql  = "call spSearchAllUser()";
             try {
                 $objCon = new Conexion();
@@ -67,7 +67,7 @@
             try {
                 $objCon = new Conexion();
                 $stmt = $objCon->getConect() -> prepare($sql);
-                $stmt ->  bindParam(1,  $this -> code,      PDO::PARAM_INT);
+                $stmt ->  bindParam(1,  $this -> id,      PDO::PARAM_INT);
                 $stmt -> execute();
                 $respon = true;
             } catch (PDOException $e) {
@@ -82,7 +82,7 @@
         try {
             $objCon = new Conexion();
             $stmt = $objCon->getConect() -> prepare($sql);
-            $stmt ->  bindParam(1,  $this -> code,      PDO::PARAM_INT);
+            $stmt ->  bindParam(1,  $this -> id,      PDO::PARAM_INT);
             $stmt ->  bindParam(2,  $this -> name,      PDO::PARAM_STR);
             $stmt ->  bindParam(3,  $this -> email,  PDO::PARAM_STR);
             $stmt ->  bindParam(4,  $this -> user,      PDO::PARAM_STR);

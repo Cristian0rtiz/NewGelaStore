@@ -3,9 +3,8 @@
     /////////////////////////////////////////////
     //                 CONTROLLER              //
     /////////////////////////////////////////////
-    require_once 'controller/user.controller.php';
-    require_once 'controller/kernel.controller.php';
-
+    require_once 'controller/user.controller.php'; 
+    require_once 'controller/dashboard.controller.php';
     /////////////////////////////////////////////
     //                   MODEL                 //
     /////////////////////////////////////////////
@@ -24,7 +23,7 @@
 
     /////////////////////////////////////////////
                     /* run */
-    $objRun = new Kernel();
+    $objRun = new Dashboard();
     $objRun->getIntro();
     
 ?>
