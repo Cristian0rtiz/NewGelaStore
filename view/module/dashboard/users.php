@@ -3,7 +3,7 @@
         <h1 class="h2">Dashboard</h1>
         <div class="btn-toolbar mb-2 mb-md-0">
           <div class="btn-group me-2">
-            <a href="uReport.php" class="btn btn-sm btn-outline-secondary">Descargar</a>
+            <a href="uReport.php" class="btn btn-sm btn btn-outline-dark ">Descargar</a>
           </div>
         </div>
       </div>
@@ -34,10 +34,10 @@
                   <td>'.$value["EMAIL"].'</td>
                   <td>'.$value["PASSWORD"].'</td>
                   <td>
-                  <button class="btn btn-danger" onClick="erase(this.parentElement.parentElement)"><i class="text-light bi bi-trash"></i></button>
+                  <button class="btn btn-danger" onClick=" erase(this.parentElement.parentElement) "><i class="text-light bi bi-trash"></i></button>
                   </td>
                   <td>
-                  <button class="btn btn-info" onclick="edit(this.parentElement.parentElement)" data-toggle="modal" data-target="#myModal"><i class="bi bi-pencil-square"></i></button>
+                  <button class="text-light btn btn-info " onclick=" edit(this.parentElement.parentElement) " data-toggle="modal" data-target="#myModal"><i class="bi bi-pencil-square"></i></button>
                   </td>
                         </tr>';
                 }
@@ -52,11 +52,12 @@
           </tbody>
         </table>
       </div>
+      <div id="ohsnap"></div>
     </main>
   </div>
 </div>
 
-
+<script src="view/js/crud.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script><script src="dashboard.js"></script>
 </body>
