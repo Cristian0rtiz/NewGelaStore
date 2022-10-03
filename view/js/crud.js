@@ -1,6 +1,6 @@
 function erase(obj) {
 
-    let codigo = obj.children[0].innerHTML;
+    let id = obj.children[0].innerHTML;
 
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
@@ -21,7 +21,7 @@ function erase(obj) {
     }).then((result) => {
         if (result.isConfirmed) {
 
-            window.location = "index.php?ruta=erase&codigo=" + codigo
+            window.location = "index.php?route=erase&id=" + id
 
         } else if (
             /* Read more about handling dismissals below */
@@ -34,29 +34,39 @@ function erase(obj) {
             )
         }
     })
+}
 
+function getData(obj) {
+    let name = obj.children[1].innerHTML;
+    let email = obj.children[2].innerHTML;
+    let user = obj.children[3].innerHTML;
+    let password = obj.children[4].innerHTML;
+    let id = obj.children[0].innerHTML;
 
-
-
+    document.getElementById("txtNameM").value = name;
+    document.getElementById("txtEmailM").value = email;
+    document.getElementById("txtUserM").value = user;
+    document.getElementById("txtPasswordM").value = password;
+    document.getElementById("txtIdM").value = id;
 }
 
 function edit(obj) {
-    let nombre = obj.children[1].innerHTML;
-    let apellido = obj.children[2].innerHTML;
-    let usuario = obj.children[3].innerHTML;
-    let clave = obj.children[4].innerHTML;
-    let codigo = obj.children[0].innerHTML;
+    let name = obj.children[1].innerHTML;
+    let email = obj.children[2].innerHTML;
+    let user = obj.children[3].innerHTML;
+    let password = obj.children[4].innerHTML;
+    let id = obj.children[0].innerHTML;
 
-    document.getElementById("txtNombreM").value = nombre;
-    document.getElementById("txtApellidoM").value = apellido;
-    document.getElementById("txtUsuarioM").value = usuario;
-    document.getElementById("txtClaveM").value = clave;
-    document.getElementById("txtCodigoM").value = codigo;
+    document.getElementById("txtNameM").value = name;
+    document.getElementById("txtEmailM").value = email;
+    document.getElementById("txtUserM").value = user;
+    document.getElementById("txtPasswordM").value = password;
+    document.getElementById("txtIdM").value = id;
 }
 
-function getGeneraReporte(e) {
+function genReport(e) {
 
-    window.open('view/module/Ureport.php', '_blank');
+    window.open('view/module/dashboard/uReport.php');
     e.preventDefault();
 
 }

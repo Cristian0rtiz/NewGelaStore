@@ -1,10 +1,10 @@
 <?php
-//echo "llego";
+// print "<h1>hola carebola</h1>";
 eraseUser();
 function eraseUser(){
     try {
         $objDtoUser = new User();
-        $objDtoUser -> setId($_GET['codigo']);
+        $objDtoUser -> setId($_GET['id']);
         $objDaoUser = new UserModel($objDtoUser);
         if ( $objDaoUser -> mldEraseUser() == true ) {
 
@@ -15,7 +15,7 @@ function eraseUser(){
                         'success'
                     )
                 </script>";
-                include_once 'view/module/user.php';
+                include_once 'view/module/dashboard/users.php';
         }
 
     } catch ( PDOException $e ) {

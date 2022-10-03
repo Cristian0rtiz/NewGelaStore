@@ -1,15 +1,20 @@
 <?php
-
-ob_start();
+  require_once '../../../controller/user.controller.php';
+  require_once '../../../model/dao/user.dao.php';
+  require_once '../../../model/dto/user.dto.php';
+  require_once '../../../model/conexion.php';
+  ob_start();
 
 ?>
-<!-- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../../css/dashboard.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <title>Document</title>
 </head>
 <body>
@@ -23,13 +28,11 @@ ob_start();
               <th scope="col">Usuario</th>
               <th scope="col">Correo</th>
               <th scope="col">Contraseña</th>
-              <th scope="col">Borrar</th>
-              <th scope="col">Modificar</th>
             </tr>
           </thead>
           <tbody>
             <?php
-            $data = new UserController();
+              $data = new UserController();
               if(gettype($data)>0){
                 foreach($data -> getSearchAllUser() as $key => $value){
                   print'<tr>
@@ -38,13 +41,14 @@ ob_start();
                   <td>'.$value["USER"].'</td>
                   <td>'.$value["EMAIL"].'</td>
                   <td>'.$value["PASSWORD"].'</td>
-                  <td>
-                  <button class="btn btn-danger" onClick="erase(this.parentElement.parentElement)"><span data-feather="trash-2"></span></button>
-                  </td>
-                  <td>
-                  <button class="btn btn-info" onclick="edit(this.parentElement.parentElement)" data-toggle="modal" data-target="#myModal"><span class="text-light" data-feather="edit-2"></span></button>
-                  </td>
-                        </tr>';
+                  </tr>';
+                  // <td>
+                  // <button class="btn btn-danger" onClick="erase(this.parentElement.parentElement)"><span data-feather="trash-2"></span></button>
+                  // </td>
+                  // <td>
+                  // <button class="btn btn-info" onclick="edit(this.parentElement.parentElement)" data-toggle="modal" data-target="#myModal"><span class="text-light" data-feather="edit-2"></span></button>
+                  // </td>
+                        
                 }
                 
               }else{ echo'<tr>
@@ -65,55 +69,39 @@ ob_start();
 
       <script src="https://cdn.jsdelivr.net/npm/feather-icons@4.28.0/dist/feather.min.js" integrity="sha384-uO3SXW5IuS1ZpFPKugNNWqTZRRglnUJK6UAZ/gxOX80nxEkN9NcGZTftn6RzhGWE" crossorigin="anonymous"></script>
       <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js" integrity="sha384-zNy6FEbO50N+Cg5wap8IKA4M/ZnLJgzc6w2NqACZaK0u0FXfOWRRJOnQtpZun8ha" crossorigin="anonymous"></script>
-      <script src="dashboard.js"></script>
+      <script src="../../js/dashboard.js"></script>
 </body>
-</html> -->
+</html>
 
 
 <?php
 
 $info = ob_get_clean();
 // print $info;
-require 'vendor/autoload.php';
-require_once 'dashboard/autoload.inc.php';
+require '../../../vendor/autoload.php';
+// require_once 'autoload.inc.php';
 
 use Dompdf\Dompdf;
 
 $dompdf = new Dompdf();
+// $options = $dompdf->getOptions();
+// $options->setDefaultFont('Courier');
+// $dompdf->setOptions($options);
+
 $options = $dompdf->getOptions();
-$options->setDefaultFont('Courier');
+$options->set(array('isRemoteEnabled'=> true));
 $dompdf->setOptions($options);
 
+//GENERATE PDF WITH HTML
+$dompdf->loadHtml($info);
+// print $info;
 
-$dompdf->loadHtml('hello world');
+//TYPE PAPER
+$dompdf->setPaper('A4', 'landscape');
 
 // Render the HTML as PDF
 $dompdf->render();
 
 // Output the generated PDF to Browser
-$dompdf->stream("reporte.pdf", array("Attachment"=> true));
+$dompdf->stream("reporte.pdf", array("Attachment"=> false));
 ?>
-
-
-
-
-// Include autoloader 
-require_once 'dompdf/autoload.inc.php'; 
- 
-// Reference the Dompdf namespace 
-// use Dompdf\Dompdf; 
- 
-// Instantiate and use the dompdf class 
-$dompdf = new Dompdf();
-
-// Load HTML content 
-$dompdf->loadHtml('<h1>Welcome to CodexWorld.com</h1>'); 
- 
-// (Optional) Setup the paper size and orientation 
-$dompdf->setPaper('A4', 'landscape'); 
- 
-// Render the HTML as PDF 
-$dompdf->render(); 
- 
-// Output the generated PDF to Browser 
-$dompdf->stream();
