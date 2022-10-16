@@ -66,6 +66,49 @@
             "install-path": "../dompdf/dompdf"
         },
         {
+            "name": "enyo/dropzone",
+            "version": "v5.9.3",
+            "version_normalized": "5.9.3.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/dropzone/dropzone-packagist.git",
+                "reference": "286b2dc1f1195bd12169e4c9d5f91cfbe46e245f"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/dropzone/dropzone-packagist/zipball/286b2dc1f1195bd12169e4c9d5f91cfbe46e245f",
+                "reference": "286b2dc1f1195bd12169e4c9d5f91cfbe46e245f",
+                "shasum": ""
+            },
+            "time": "2021-09-21T17:03:36+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matias Meno",
+                    "email": "m@tias.me",
+                    "homepage": "http://www.yesmeno.com"
+                }
+            ],
+            "description": "Handles drag and drop of files for you.",
+            "homepage": "http://www.dropzonejs.com",
+            "keywords": [
+                "drag and drop",
+                "dragndrop",
+                "file upload",
+                "upload"
+            ],
+            "support": {
+                "issues": "https://github.com/dropzone/dropzone-packagist/issues",
+                "source": "https://github.com/dropzone/dropzone-packagist/tree/v5.9.3"
+            },
+            "install-path": "../enyo/dropzone"
+        },
+        {
             "name": "masterminds/html5",
             "version": "2.7.6",
             "version_normalized": "2.7.6.0",

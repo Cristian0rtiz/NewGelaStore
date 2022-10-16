@@ -1,6 +1,7 @@
 {
     "require": {
         "twbs/bootstrap-icons": "^1.9",
-        "dompdf/dompdf": "^2.0"
+        "dompdf/dompdf": "^2.0",
+        "enyo/dropzone": "^5.9"
     }
 }

@@ -74,6 +74,7 @@
                     </div>
                     </div>
                 </div>
+                
                 <div class="col">
                     <div class="card shadow-sm">
                         <img src="../img/productos_img/almendras.jpg">
@@ -167,7 +168,6 @@
                             <a href="#" type="button" class="btn btn-md btn-outline-success">Agregar</a>
                         </div>
                     </div>
-
                     </div>
                 </div>
             </div>

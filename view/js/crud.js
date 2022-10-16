@@ -1,3 +1,39 @@
+function create(e) {
+    e.preventDefault();
+    formulario = document.getElementById('formProduct');
+    img = document.getElementById('img');
+    nombre = document.getElementById('name');
+    code = document.getElementById('code');
+    price = document.getElementById('price');
+
+
+    lVali = true;
+
+    if (img.value == "") {
+        clave.style.borderColor = "red";
+        ohSnap('Ingresa la imagen...', { color: 'red' }); // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (nombre.value == "") {
+        nombre.style.borderColor = "red";
+        ohSnap('Ingresar el nombre...', { color: 'red' }); // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (code.value == "") {
+        apellido.style.borderColor = "red";
+        ohSnap('Ingresar el codigo...', { color: 'red' }, { duration: 1000 }); // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (price.value == "") {
+        usuario.style.borderColor = "red";
+        ohSnap('Ingresar el precio...', { color: 'red' }); // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (lVali == true) {
+        formulario.submit();
+    }
+}
+
 function erase(obj) {
 
     let id = obj.children[0].innerHTML;
@@ -64,9 +100,23 @@ function edit(obj) {
     document.getElementById("txtIdM").value = id;
 }
 
-function genReport(e) {
+function genReportU(e) {
 
     window.open('view/module/dashboard/uReport.php');
+    e.preventDefault();
+
+}
+
+function genReportO(e) {
+
+    window.open('view/module/dashboard/oReport.php');
+    e.preventDefault();
+
+}
+
+function genReportP(e) {
+
+    window.open('view/module/dashboard/pReport.php');
     e.preventDefault();
 
 }
