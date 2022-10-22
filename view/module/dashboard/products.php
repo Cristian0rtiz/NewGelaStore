@@ -9,54 +9,50 @@
         </div>
         </div>
         <h2>Productos</h2>
-        <form action="" class="mx-auto" id="formProduct" method="post"></form>
+        <form action="" class="mx-auto" id="dragToUploadForm" method="post">
             <div class="container mx-auto">
                 <div class="row col-5 g-3 mx-auto ">
                 <div class="col">
                     <div class="card shadow-sm">
                         <div class="form-group">
-                            <form id="dragToUploadForm">
                             <div class="drag-area">
+                              <!-- <div ondragover="dragover(event)"> -->
                               <header>Arrastra y suelta</header>
-                              <span>O</span>
+                              <span class="text-center">O</span>
                               <button class="btn btn-info">Busca la imagen</button>
                               <div id="preview"></div>
-                              <input type="file" id="inputFile" hidden />
+                              <input type="file" id="inputFile" name="imgRe" hidden />
+                              <!-- </div> -->
                             </div>
-                          </form>
                         </div>
-
                         <div class="card-body p-3">
-                            <h3><input type="text" name="" id="name" class="cart-title form-control" placeholder="Nombre del producto"></h3>
-                            <textarea name="" class="card-text form-control" id="code" cols="30" rows="10" placeholder="descripción del producto"></textarea>
+                            <h3><input type="text" name="name" id="name" class="cart-title form-control" placeholder="Nombre del producto"></h3>
+                            <textarea name="code" class="card-text form-control" id="code" cols="30" rows="10" placeholder="descripción del producto"></textarea>
                             <input type="number" name="price" id="price" class="form-control card-text" placeholder="precio del producto">
                             <div class="d-flex justify-content-between align-items-center">
                                 <div class="btn-group p-3">
-                                    <a href="" type="button" class="btn btn-md btn-outline-danger">Cancelar</a>
+                                    <a type="button" onclick="ClearForm()" class="btn btn-md btn-outline-danger">Cancelar</a>
                                 </div>
-                                <a type="button" onclick="create(event)" class="btn btn-md btn-outline-success">Agregar</a>
+                                <a type="button" onclick="createP(event)" class="btn btn-md btn-outline-success">Agregar</a>
                             </div>
                         </div>
                     </div>
                 </div>
-                </form>
                 <?php
-          if (isset($_POST['txtNombre'])){
-            $objCtrUser = new UserController();
-            $objCtrUser -> setInsertUser(
-              $_POST['img'],
+          if (isset($_POST['name'])){
+            $objCtrUser = new ProductController();
+            $objCtrUser -> setInsertProducts(
+              $_POST['imgRe'],
               $_POST['name'],
               $_POST['code'],
               $_POST['price']
             );
           }
         ?>
-            </div>
-            <script src="/view/js/dragDrop.js"></script>
+        </form>
+              </div>
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/dropzone@6.0.0-beta.1/dist/dropzone-min.js"></script>
+
 
 
       <div class="table-responsive">
@@ -101,6 +97,50 @@
             ?>
           </tbody>
         </table>
+        
+        <div id="ohsnap"></div>
+        <!-- <div class="modal-footer">
+        <div>
+          <button class="btn btn-app float-left" onclick="validateModify(event)">
+              <i class="fa fa-save"></i> Guardar
+          </button>
+          <?php
+            // if (isset($_POST['txtNombreM'])){
+            //   $objCtrUser = new UserController();
+            //   $objCtrUser -> setUpdateUser(
+            //     $_POST['txtIdM'],
+            //     $_POST['txtNameM'],
+            //     $_POST['txtEmailM'],
+            //     $_POST['txtUserM'],
+            //     $_POST['txtPasswordM']
+            //   );
+            //   include_once 'view/module/user.php';
+            // }
+          ?>
+          <button class="btn btn-app" data-dismiss="modal">
+              <i class="fa fa-close"></i> Salir
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+    </main>
+  </div>
+</div>
+<?php
+            // if (isset($_POST['txtNameM'])){
+            //   $objCtrUser = new UserController();
+            //   $objCtrUser -> setUpdateUser(
+            //     $_POST['txtIdM'],
+            //     $_POST['txtNameM'],
+            //     $_POST['txtEmailM'],
+            //     $_POST['txtUserM'],
+            //     $_POST['txtPasswordM']
+            //   );
+            //   include_once 'view/module/user.php'; 
+            // }
+          ?> -->
     </main>
     <!-- <td>'.$value["ID"].'</td>
         <td>'.$value["NAME"].'</td>

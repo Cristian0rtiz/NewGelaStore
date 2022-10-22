@@ -1,7 +1,7 @@
-function create(e) {
+function createP(e) {
     e.preventDefault();
-    formulario = document.getElementById('formProduct');
-    img = document.getElementById('img');
+    formulario = document.getElementById('dragToUploadForm');
+    img = document.getElementById('inputFile');
     nombre = document.getElementById('name');
     code = document.getElementById('code');
     price = document.getElementById('price');
@@ -10,7 +10,7 @@ function create(e) {
     lVali = true;
 
     if (img.value == "") {
-        clave.style.borderColor = "red";
+        img.style.borderColor = "red";
         ohSnap('Ingresa la imagen...', { color: 'red' }); // alert will have class 'alert-color'
         lVali = false;
     }
@@ -20,18 +20,22 @@ function create(e) {
         lVali = false;
     }
     if (code.value == "") {
-        apellido.style.borderColor = "red";
+        code.style.borderColor = "red";
         ohSnap('Ingresar el codigo...', { color: 'red' }, { duration: 1000 }); // alert will have class 'alert-color'
         lVali = false;
     }
     if (price.value == "") {
-        usuario.style.borderColor = "red";
+        price.style.borderColor = "red";
         ohSnap('Ingresar el precio...', { color: 'red' }); // alert will have class 'alert-color'
         lVali = false;
     }
     if (lVali == true) {
         formulario.submit();
     }
+}
+//  borrar el contenido del formulario
+function ClearForm() {
+    document.getElementById("dragToUploadForm").reset();
 }
 
 function erase(obj) {
@@ -87,6 +91,20 @@ function getData(obj) {
 }
 
 function edit(obj) {
+    let name = obj.children[1].innerHTML;
+    let email = obj.children[2].innerHTML;
+    let user = obj.children[3].innerHTML;
+    let password = obj.children[4].innerHTML;
+    let id = obj.children[0].innerHTML;
+
+    document.getElementById("txtNameM").value = name;
+    document.getElementById("txtEmailM").value = email;
+    document.getElementById("txtUserM").value = user;
+    document.getElementById("txtPasswordM").value = password;
+    document.getElementById("txtIdM").value = id;
+}
+
+function editP(obj) {
     let name = obj.children[1].innerHTML;
     let email = obj.children[2].innerHTML;
     let user = obj.children[3].innerHTML;

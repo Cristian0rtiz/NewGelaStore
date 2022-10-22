@@ -1,4 +1,5 @@
 //selecting all required elements
+const uploadImage = document.getElementById("imgRe");
 const dropArea = document.querySelector(".drag-area"),
     dragText = dropArea.querySelector("header"),
     button = dropArea.querySelector("button"),
@@ -26,13 +27,13 @@ input.addEventListener("change", function() {
 dropArea.addEventListener("dragover", (event) => {
     event.preventDefault(); //preventing from default behaviour
     dropArea.classList.add("active");
-    dragText.textContent = "Release to Upload File";
+    dragText.textContent = "Suelta para subir el archivo";
 });
 
 //If user leave dragged File from DropArea
 dropArea.addEventListener("dragleave", () => {
     dropArea.classList.remove("active");
-    dragText.textContent = "Drag & Drop to Upload File";
+    dragText.textContent = "Arrastra y suelta";
 });
 
 //If user drop File on DropArea
@@ -57,15 +58,15 @@ function showFile(files) {
                 const image = document.createElement("img");
                 image.src = fileURL;
                 image.setAttribute("width", "50px");
-                let imgTag = `<img src="${fileURL}" alt="image">`; //creating an img tag and passing user selected file source inside src attribute
-                //dropArea.innerHTML = imgTag; //adding that created img tag inside dropArea container
+                let imgTag = `<img src="${fileURL}" id="imgRe" name="imgRe" alt="image">`; //creating an img tag and passing user selected file source inside src attribute
+                dropArea.innerHTML = imgTag; //adding that created img tag inside dropArea container
                 document.querySelector("#preview").appendChild(image);
             };
             fileReader.readAsDataURL(file);
         } else {
             alert("This is not an Image File!");
             dropArea.classList.remove("active");
-            dragText.textContent = "Drag & Drop to Upload File";
+            dragText.textContent = "Arrastra y suelta";
         }
     });
 }
