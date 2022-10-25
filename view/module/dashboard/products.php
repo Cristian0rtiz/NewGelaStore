@@ -9,7 +9,7 @@
         </div>
         </div>
         <h2>Productos</h2>
-        <form action="" class="mx-auto" id="dragToUploadForm" method="post">
+        <form action="" class="mx-auto" id="dragToUploadForm" method="post" enctype="multipart/form-data">
             <div class="container mx-auto">
                 <div class="row col-5 g-3 mx-auto ">
                 <div class="col">
@@ -39,16 +39,38 @@
                     </div>
                 </div>
                 <?php
-          if (isset($_POST['name'])){
-            $objCtrUser = new ProductController();
-            $objCtrUser -> setInsertProducts(
-              $_POST['imgRe'],
-              $_POST['name'],
-              $_POST['code'],
-              $_POST['price']
-            );
+                  if (isset($_POST['name'])){
+                    $objCtrUser = new ProductController();
+                    $objCtrUser -> setInsertProducts(
+                      $_POST['name'],
+                      $_POST['code'],
+                      $recieveImg,
+                      $_POST['price']
+                    );
+                  }
+          // Enviar la imagen a su Nueva ubicacion
+          try {
+            $tmpImg = $_FILES['imgRe']['tmp_name'];
+            $nameImg = $_FILES['imgRe']['name'];
+            $route = "view/img/productos/";
+            $recieveImg = $route.$nameImg;
+            if (!file_exists($route)) {
+              mkdir($route);
+            }
+            if (!file_exists($recieveImg)) {
+              $sentImg = move_uploaded_file($tmpImg, $recieveImg);
+            }
+
+            if($sentImg){
+              print "se ha guardado con exito";
+            } else{
+              print "la imagen no se guardo";
+            }
+          } catch (Exception $e) {
+            echo "no se pudo enviar", $e->getMessage(); 
           }
-        ?>
+
+                ?>
         </form>
               </div>
 
@@ -76,7 +98,7 @@
                   print'<tr>
                   <td>'.$value["ID"].'</td>
                   <td>'.$value["NAME"].'</td>
-                  <td><img src='.$value["IMG"].'></td>
+                  <td><img class="img-responsive img-rounded img-thumbnail" src='.$value["IMG"].'></td>
                   <td>'.$value["PRICE"].'</td>
                   <td>'.$value["CODE"].'</td>
                   <td>
@@ -97,25 +119,24 @@
             ?>
           </tbody>
         </table>
-        
         <div id="ohsnap"></div>
-        <!-- <div class="modal-footer">
+        <div class="modal-footer">
         <div>
           <button class="btn btn-app float-left" onclick="validateModify(event)">
               <i class="fa fa-save"></i> Guardar
           </button>
           <?php
-            // if (isset($_POST['txtNombreM'])){
-            //   $objCtrUser = new UserController();
-            //   $objCtrUser -> setUpdateUser(
-            //     $_POST['txtIdM'],
-            //     $_POST['txtNameM'],
-            //     $_POST['txtEmailM'],
-            //     $_POST['txtUserM'],
-            //     $_POST['txtPasswordM']
-            //   );
-            //   include_once 'view/module/user.php';
-            // }
+            if (isset($_POST['txtNombreM'])){
+              $objCtrUser = new UserController();
+              $objCtrUser -> setUpdateUser(
+                $_POST['txtIdM'],
+                $_POST['txtNameM'],
+                $_POST['txtEmailM'],
+                $_POST['txtUserM'],
+                $_POST['txtPasswordM']
+              );
+              include_once 'view/module/user.php';
+            }
           ?>
           <button class="btn btn-app" data-dismiss="modal">
               <i class="fa fa-close"></i> Salir
@@ -129,21 +150,21 @@
   </div>
 </div>
 <?php
-            // if (isset($_POST['txtNameM'])){
-            //   $objCtrUser = new UserController();
-            //   $objCtrUser -> setUpdateUser(
-            //     $_POST['txtIdM'],
-            //     $_POST['txtNameM'],
-            //     $_POST['txtEmailM'],
-            //     $_POST['txtUserM'],
-            //     $_POST['txtPasswordM']
-            //   );
-            //   include_once 'view/module/user.php'; 
-            // }
-          ?> -->
+            if (isset($_POST['txtNameM'])){
+              $objCtrUser = new UserController();
+              $objCtrUser -> setUpdateUser(
+                $_POST['txtIdM'],
+                $_POST['txtNameM'],
+                $_POST['txtEmailM'],
+                $_POST['txtUserM'],
+                $_POST['txtPasswordM']
+              );
+              include_once 'view/module/user.php';
+            }
+          ?>
     </main>
-    <!-- <td>'.$value["ID"].'</td>
+        <td>'.$value["ID"].'</td>
         <td>'.$value["NAME"].'</td>
         <td>'.$value["IMG"].'</td>
         <td>'.$value["PRICE"].'</td>
-        <td>'.$value["CODE"].'</td> -->
+        <td>'.$value["CODE"].'</td>

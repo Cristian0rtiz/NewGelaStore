@@ -24,8 +24,8 @@
                 $objCon = new Conexion();
                 $stmt = $objCon -> getConect() -> prepare($sql);
                 $stmt ->  bindParam(1, $this -> name, PDO::PARAM_STR);
-                $stmt ->  bindParam(2, $this -> img, PDO::PARAM_STR);
-                $stmt ->  bindParam(3, $this -> code, PDO::PARAM_STR);
+                $stmt ->  bindParam(3, $this -> img, PDO::PARAM_STR);
+                $stmt ->  bindParam(2, $this -> code, PDO::PARAM_STR);
                 $stmt ->  bindParam(4, $this -> price, PDO::PARAM_STR);
                 $estado = $stmt -> execute();
             } catch (PDOException $e) {
