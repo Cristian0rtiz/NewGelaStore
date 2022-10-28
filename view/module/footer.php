@@ -13,3 +13,14 @@
 <script src="view/js/dashboard.js"></script>
 <script src="view/js/dragDrop.js"></script>
 <script src="view/js/ohsnap.js"></script>
+
+<footer class="my-5 pt-5 text-muted text-center text-big">
+    <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+    <p class="text-dark">&copy; 2022 GelaStore, Inc. All rights reserved.</p>
+    <ul class="list-unstyled d-flex">
+        <li class="ms-3"><a class="link-dark" href="https://twitter.com/elbuenmani66/status/1200545659012730881"><i class="bi bi-twitter sizeI"></i></a></li>
+        <li class="ms-3"><a class="link-dark" href="https://www.instagram.com/alimentosgelaoficial/"><i class="bi bi-instagram"></i></a></li>
+        <li class="ms-3"><a class="link-dark" href="https://www.facebook.com/alimentosgelasas"><i class="bi bi-facebook"></i></a></li>
+    </ul>
+    </div>
+</footer>

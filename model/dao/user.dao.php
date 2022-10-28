@@ -3,14 +3,14 @@
     //require_once "../model/dto/user.dto.php";
 
     class UserModel{
-        private $code;
+        private $id;
         private $name;
         private $email;
         private $user;
         private $password;
 
         public function __construct($objDtoUser){
-            $this ->code      =  $objDtoUser -> getId() ;
+            $this ->id      =  $objDtoUser -> getId() ;
             $this ->user      =  $objDtoUser -> getUser() ;
             $this ->password  =  $objDtoUser -> getPassword() ;
             $this ->name      =  $objDtoUser -> getName() ;

@@ -1,13 +1,12 @@
 <?php
-// print "<h1>hola carebola</h1>";
-// print '<center><h1>'.$_GET['id'].'</h1></center>';
-eraseUser();
-function eraseUser(){
+
+eraseProduct();
+function eraseProduct(){
     try {
-        $objDtoUser = new User();
-        $objDtoUser -> setId($_GET['id']);
-        $objDaoUser = new UserModel($objDtoUser);
-        if ($objDaoUser -> mldEraseUser() == true ) {
+        $objDtoProduct = new Product();
+        $objDtoProduct -> setId($_GET['id']);
+        $objDaoProduct = new ProductModel($objDtoProduct);
+        if ($objDaoProduct -> mldEraseProduct() == true ) {
 
             echo "<script>
                     Swal.fire(
@@ -16,7 +15,7 @@ function eraseUser(){
                         'success'
                         )
                 </script>";
-                include_once 'view/module/dashboard/users.php';
+                include_once 'view/module/dashboard/products.php';
         }
 
     } catch ( PDOException $e ) {

@@ -78,6 +78,9 @@
               case 'erase':
                 include_once 'erase.php';
               break;
+              case 'erasep':
+                include_once 'eraseP.php';
+              break;
               default:
                 include_once 'users.php';
               break;
@@ -85,7 +88,7 @@
       }   else {
         include_once 'users.php';
       }
-      include_once 'footer.php';
+      include_once 'view/module/footer.php';
     ?>
     <!-- <div id="ohsnap"></div> -->
     </nav>

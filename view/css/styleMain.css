@@ -37,3 +37,8 @@
     /* background-image : url('/public/img/fondo.jpg'); */
     /* background: radial-gradient( rgba(68, 188, 235, 0.253),rgba(91, 182, 235, 0.493), rgba(255, 255, 255, 0.329)); */
 /* } */
+
+.sizeI{
+    width: 24px;
+    height: 24px;
+}

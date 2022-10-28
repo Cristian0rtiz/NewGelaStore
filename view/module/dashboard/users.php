@@ -38,7 +38,7 @@
                   <button class="btn btn-danger" onClick=" erase(this.parentElement.parentElement) "><i class="text-light bi bi-trash"></i></button>
                   </td>
                   <td>
-                  <button class="text-light btn btn-info " onclick=" edit(this.parentElement.parentElement) " data-toggle="modal" data-target="#myModal"><i class="bi bi-pencil-square"></i></button>
+                  <button class="text-light btn btn-info " onclick=" edit(this.parentElement.parentElement) "  data-bs-toggle="modal" data-bs-target="#myModal"><i class="bi bi-pencil-square"></i></button>
                   </td>
                         </tr>';
                 }
@@ -61,68 +61,56 @@
       <!-- Modal Header -->
       <div class="modal-header bg bg-info">
         <h4 class="modal-title">Modificar Usuario</h4>
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <button type="button" class="btn-close" aria-label="Close" data-bs-dismiss="modal"></button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body">
-        <form method="post" id="frmUsuarioModificar">
-          <input type="hidden" name="txtCodigoM" id="txtIdM">
+        <form method="post" class="form-floating" id="frmUserModify">
+          <input type="hidden" name="txtIdM" id="txtIdM">
           <div class="box-body">
             <div class="row">
-                <div class="col-lg-6 col-xs-6">
+                <div class=" col-md">
                 <!-- texto box -->
-                    <div class="input-group">
-                        <span class="input-group-addon">Nombre</span>
-                        <input type="text" class="form-control" id="txtNameM" name="txtNombreM">
-                        <span class="input-group-addon">N</span>
+                    <div class="form-floating">
+                      <label for="floatingInput">Nombre</label>
+                        <input type="text" class="form-control col-form-label" id="txtNameM" name="txtNameM">
                     </div>
                 </div>
-                <!-- ./col -->
-                <div class="col-lg-6 col-xs-6">
+                <div class="col-md">
                 <!-- texto box -->
-                    <div class="input-group">
-                        <span class="input-group-addon">Email</span>
-                        <input type="text" class="form-control" id="txtEmailM" name="txtApellidoM">
-                        <span class="input-group-addon">A</span>
+                    <div class="form-floating">
+                      <label for="floatingInput">Email</label>
+                        <input type="text" class="form-control col-form-label" id="txtEmailM" name="txtEmailM">
                     </div>
                 </div>
-                <!-- ./col -->
             </div>
             <br>
-            <div class="row">
-                <div class="col-lg-6 col-xs-6">
+            <div class="row g-3">
+            <div class=" col-md-6 ">
                 <!-- texto box -->
-                    <div class="input-group">
-                        <span class="input-group-addon">Usuario</span>
-                        <input type="text" class="form-control" id="txtUserM" name="txtUsuarioM">
-                        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+                    <div class="form-floating">
+                    <label for="floatingInput">Usuario</label>
+                        <input type="text" class="form-control col-form-label" id="txtUserM" name="txtUserM">
                     </div>
                 </div>
-                <!-- ./col -->
-                <div class="col-lg-6 col-xs-6">
+              <div class="col-md-6">
                 <!-- texto box -->
-                    <div class="input-group">
-                        <span class="input-group-addon">Contraseña</span>
-                        <input type="text" class="form-control" id="txtPasswordM" name="txtClaveM" >
-                        <span class="input-group-addon"><i class="fa fa-ambulance"></i></span>
+                    <div class="form-floating">
+                    <label for="floatingInput">Contraseña</label>
+                        <input type="text" class="form-control col-form-label" id="txtPasswordM" name="txtPasswordM" >
                     </div>
                 </div>
-                <!-- ./col -->
             </div>
             </div>
             <!-- /.box-body -->
-
-            <!-- /.box-footer-->
         </form>
       </div>
 
       <!-- Modal footer -->
       <div class="modal-footer">
         <div>
-          <button class="btn btn-app float-left" onclick="validateModify(event)">
-              <i class="fa fa-save"></i> Guardar
-          </button>
+          <button class="btn btn-success" onclick="validateMU(event)"> Guardar</button>
           <?php
             if (isset($_POST['txtNombreM'])){
               $objCtrUser = new UserController();
@@ -136,9 +124,7 @@
               include_once 'view/module/user.php';
             }
           ?>
-          <button class="btn btn-app" data-dismiss="modal">
-              <i class="fa fa-close"></i> Salir
-          </button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancelar</button>
         </div>
       </div>
 
@@ -157,7 +143,7 @@
                 $_POST['txtUserM'],
                 $_POST['txtPasswordM']
               );
-              include_once 'view/module/user.php'; 
+              // include_once 'view/module/user.php'; 
             }
           ?>
 

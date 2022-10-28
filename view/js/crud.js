@@ -33,15 +33,16 @@ function createP(e) {
         formulario.submit();
     }
 }
-//  borrar el contenido del formulario
+//  borrar el contenido del formulario productos
 function ClearForm() {
     document.getElementById("dragToUploadForm").reset();
 }
 
-function erase(obj) {
+//erase product
+function eraseP(obj) {
 
     let id = obj.children[0].innerHTML;
-
+    console.log(id)
     const swalWithBootstrapButtons = Swal.mixin({
         customClass: {
             confirmButton: 'btn btn-success',
@@ -60,9 +61,8 @@ function erase(obj) {
         reverseButtons: true
     }).then((result) => {
         if (result.isConfirmed) {
-
-            window.location = "index.php?route=erase&id=" + id
-
+            let id = obj.children[0].innerHTML;
+            window.location = "index.php?route=erasep&id="+id
         } else if (
             /* Read more about handling dismissals below */
             result.dismiss === Swal.DismissReason.cancel
@@ -75,6 +75,45 @@ function erase(obj) {
         }
     })
 }
+
+//Erase User
+function erase(obj) {
+
+    let id = obj.children[0].innerHTML;
+    console.log(id)
+    const swalWithBootstrapButtons = Swal.mixin({
+        customClass: {
+            confirmButton: 'btn btn-success',
+            cancelButton: 'btn btn-danger'
+        },
+        buttonsStyling: false
+    })
+
+    swalWithBootstrapButtons.fire({
+        title: 'Estas seguro?',
+        text: "No se podra revertir!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Si, borralo!',
+        cancelButtonText: 'No, cancelar!',
+        reverseButtons: true
+    }).then((result) => {
+        if (result.isConfirmed) {
+            let id = obj.children[0].innerHTML;
+            window.location = "index.php?route=erase&id="+id
+        } else if (
+            /* Read more about handling dismissals below */
+            result.dismiss === Swal.DismissReason.cancel
+        ) {
+            swalWithBootstrapButtons.fire(
+                'Cancelado',
+                'No se ha borrado :)',
+                'error'
+            )
+        }
+    })
+}
+
 
 function getData(obj) {
     let name = obj.children[1].innerHTML;
@@ -90,6 +129,44 @@ function getData(obj) {
     document.getElementById("txtIdM").value = id;
 }
 
+function validateMU(e){
+    e.preventDefault();
+    formulario = document.getElementById('frmUserModify');
+    nombre = document.getElementById('txtNameM');
+    email = document.getElementById('txtEmailM');
+    usuario = document.getElementById('txtUserM');
+    contraseña = document.getElementById('txtPasswordM');
+    
+    lVali = true;
+    
+    if (nombre.value==""){
+        nombre.style.borderColor="red";
+        ohSnap('Ingresar el nombre...', {color: 'red'});  // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (email.value==""){
+        email.style.borderColor="red";
+        ohSnap('Ingresar el correo...', {color: 'red'},{duration:1000});  // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (usuario.value==""){
+        usuario.style.borderColor="red";
+        ohSnap('Ingresar el usuario...', {color: 'red'});  // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (contraseña.value==""){
+        contraseña.style.borderColor="red";
+        ohSnap('Ingresar la contraseña...', {color: 'red'});  // alert will have class 'alert-color'
+        lVali = false;
+    }
+    if (lVali == true){
+        formulario.submit();
+    }
+    
+
+}
+
+
 function edit(obj) {
     let name = obj.children[1].innerHTML;
     let email = obj.children[2].innerHTML;
@@ -104,19 +181,19 @@ function edit(obj) {
     document.getElementById("txtIdM").value = id;
 }
 
-function editP(obj) {
-    let name = obj.children[1].innerHTML;
-    let email = obj.children[2].innerHTML;
-    let user = obj.children[3].innerHTML;
-    let password = obj.children[4].innerHTML;
-    let id = obj.children[0].innerHTML;
+// function editP(obj) {
+//     let name = obj.children[1].innerHTML;
+//     let email = obj.children[2].innerHTML;
+//     let user = obj.children[3].innerHTML;
+//     let password = obj.children[4].innerHTML;
+//     let id = obj.children[0].innerHTML;
 
-    document.getElementById("txtNameM").value = name;
-    document.getElementById("txtEmailM").value = email;
-    document.getElementById("txtUserM").value = user;
-    document.getElementById("txtPasswordM").value = password;
-    document.getElementById("txtIdM").value = id;
-}
+//     document.getElementById("txtNameM").value = name;
+//     document.getElementById("txtEmailM").value = email;
+//     document.getElementById("txtUserM").value = user;
+//     document.getElementById("txtPasswordM").value = password;
+//     document.getElementById("txtIdM").value = id;
+// }
 
 function genReportU(e) {
 

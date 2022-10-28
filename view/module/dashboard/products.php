@@ -39,6 +39,30 @@
                     </div>
                 </div>
                 <?php
+                //hide the error reports
+                // error_reporting(E_ERROR | E_PARSE);
+                 // Send Image to products folder
+                  try {
+                    $tmpImg = $_FILES['imgRe']['tmp_name'];
+                    $nameImg = $_FILES['imgRe']['name'];
+                    $route = "view/img/productos/";
+                    $recieveImg = $route.$nameImg;
+                    if (!file_exists($route)) {
+                      mkdir($route);
+                    }
+                    if (!file_exists($recieveImg)) {
+                      $sentImg = move_uploaded_file($tmpImg, $recieveImg);
+                    }
+
+                    if($sentImg){
+                      print "se ha guardado con exito";
+                    } else{
+                      print "la imagen no se guardo";
+                    }
+                  } catch (Exception $e) {
+                    echo "no se pudo enviar", $e->getMessage(); 
+                  }
+                  //SEND DATA TO DB
                   if (isset($_POST['name'])){
                     $objCtrUser = new ProductController();
                     $objCtrUser -> setInsertProducts(
@@ -48,28 +72,6 @@
                       $_POST['price']
                     );
                   }
-          // Enviar la imagen a su Nueva ubicacion
-          try {
-            $tmpImg = $_FILES['imgRe']['tmp_name'];
-            $nameImg = $_FILES['imgRe']['name'];
-            $route = "view/img/productos/";
-            $recieveImg = $route.$nameImg;
-            if (!file_exists($route)) {
-              mkdir($route);
-            }
-            if (!file_exists($recieveImg)) {
-              $sentImg = move_uploaded_file($tmpImg, $recieveImg);
-            }
-
-            if($sentImg){
-              print "se ha guardado con exito";
-            } else{
-              print "la imagen no se guardo";
-            }
-          } catch (Exception $e) {
-            echo "no se pudo enviar", $e->getMessage(); 
-          }
-
                 ?>
         </form>
               </div>
@@ -102,7 +104,7 @@
                   <td>'.$value["PRICE"].'</td>
                   <td>'.$value["CODE"].'</td>
                   <td>
-                  <button class="btn btn-danger" onClick=" erase(this.parentElement.parentElement) "><i class="text-light bi bi-trash"></i></button>
+                  <button class="btn btn-danger" onClick=" eraseP(this.parentElement.parentElement) "><i class="text-light bi bi-trash"></i></button>
                   </td>
                   <td>
                   <button class="text-light btn btn-info " onclick=" edit(this.parentElement.parentElement) " data-toggle="modal" data-target="#myModal"><i class="bi bi-pencil-square"></i></button>
@@ -120,6 +122,8 @@
           </tbody>
         </table>
         <div id="ohsnap"></div>
+        </main>
+
         <div class="modal-footer">
         <div>
           <button class="btn btn-app float-left" onclick="validateModify(event)">
@@ -146,7 +150,6 @@
 
     </div>
   </div>
-    </main>
   </div>
 </div>
 <?php
@@ -163,8 +166,3 @@
             }
           ?>
     </main>
-        <td>'.$value["ID"].'</td>
-        <td>'.$value["NAME"].'</td>
-        <td>'.$value["IMG"].'</td>
-        <td>'.$value["PRICE"].'</td>
-        <td>'.$value["CODE"].'</td>

@@ -1,7 +1,7 @@
-Options All -Indexes 
+Options All -Indexes
 
-#Habilitar las reglas de escritas 
-RewriteEngine On 
+#Habilitar las reglas de escritas
+RewriteEngine On
 
-# las reglas
+#las reglas
 RewriteRule ^([-a-zA-Z0-9/]+)$ index.php?ruta=$1
